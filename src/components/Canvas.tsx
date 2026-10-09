@@ -136,7 +136,8 @@ function renderSection(section: Section, isSelected: boolean) {
         </div>
       );
 
-    case 'cta':
+    case 'cta': {
+      const btnTextColor = content.buttonColor === '#ffffff' || content.buttonColor === '#fff' ? content.bgColor : '#ffffff';
       return (
         <div style={{
           backgroundColor: content.bgColor,
@@ -151,7 +152,7 @@ function renderSection(section: Section, isSelected: boolean) {
           </p>
           <button style={{
             backgroundColor: content.buttonColor,
-            color: '#ffffff',
+            color: btnTextColor,
             padding: '14px 32px',
             borderRadius: '8px',
             fontSize: '1.1rem',
@@ -163,6 +164,7 @@ function renderSection(section: Section, isSelected: boolean) {
           </button>
         </div>
       );
+    }
 
     case 'footer':
       return (

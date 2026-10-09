@@ -86,14 +86,16 @@ function generateHTML(sections: Section[]): string {
   </section>`;
         break;
 
-      case 'cta':
+      case 'cta': {
+        const ctaBtnTextColor = content.buttonColor === '#ffffff' || content.buttonColor === '#fff' ? content.bgColor : '#ffffff';
         bodyHTML += `
   <section style="background-color: ${content.bgColor}; padding: 60px 40px; text-align: center;">
     <h2 style="font-size: 2rem; font-weight: bold; color: ${content.titleColor}; margin-bottom: 16px;">${content.title}</h2>
     <p style="font-size: 1.1rem; color: ${content.textColor}; max-width: 500px; margin: 0 auto 32px;">${content.subtitle}</p>
-    <button style="background-color: ${content.buttonColor}; color: #ffffff; padding: 14px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; border: none; cursor: pointer;">${content.buttonText}</button>
+    <button style="background-color: ${content.buttonColor}; color: ${ctaBtnTextColor}; padding: 14px 32px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; border: none; cursor: pointer;">${content.buttonText}</button>
   </section>`;
         break;
+      }
 
       case 'footer':
         bodyHTML += `
